@@ -13,6 +13,6 @@
     npm install  //下载所依赖的插件
     node index   //执行index.js以启动服务
 
-然后通过ip地址+端口号+ /gobang.html，即可加入对战（192.168.9.180:3000/goBang.html）
+然后通过ip地址+端口号+ /gobang.html，即可加入对战（eg: 192.168.9.180:3000/goBang.html）
 
-如果自己修改app.jsx文件后，需执行`grunt`命令以将jsx编译成js文件。
+*如果自己修改app.jsx文件后，需执行`grunt`命令以将jsx编译成js文件。*
