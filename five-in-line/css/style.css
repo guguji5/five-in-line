@@ -1,0 +1,104 @@
+html,body{
+    height:100%;
+    background: #efefef;
+    perspective: 800px;
+    perspective-origin: 50% 300px;
+  }
+  *{
+    box-sizing: border-box;
+    font-family: '微软雅黑';
+    margin:0px;padding:0px;
+  }
+  header h2{
+    text-align: center;
+    padding:20px;
+    color: green;
+    font-size: 36px;
+    background-image:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(248, 250, 213, 1)), to(rgba(-6, 13, 255, 1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  #wrap{
+    width:535px;
+    height:535px;
+    position:absolute;
+    top:50%;
+    margin-top:-268px;
+    margin-left:-268px;
+    left:50%;
+    padding:5px;
+    background: url('../img/timg.jpg');
+  }
+  .unit{
+      float:left;
+      width:35px;height:35px;           
+  }
+  .unit-b{
+      background: url('../img/black.png') no-repeat center center;
+      background-size: 25px 25px;
+  }
+  .unit-w{
+      background: url('../img/white.png') no-repeat center center;
+      background-size: 25px 25px;
+  }
+  .reset{
+      position:fixed;
+      left:40px;
+      bottom:40px;
+      padding: 10px 15px;
+      border: 1px solid;
+      border-radius: 27px;
+      background-image: -webkit-gradient(linear, 0 0, right bottom, from(rgba(0, 250, 0, 1)), to(rgba(51, 51, 51, 1)));
+      z-index:10;
+  }
+  .turn{
+      position:fixed;
+      right:9px;
+      top:9px;
+  }
+  .login{
+    display: relative;
+    width: 100%;
+    height:calc(100%);
+    background: url('../img/girl.jpg');
+    background-size: cover;
+  }
+  .login .loginName{
+    position:absolute;
+    width:500px;
+    top:12%;
+    height:150px;
+    left:50%;
+    margin-left:-250px;
+    background: rgba(255,255,255,0.4)
+  }
+  .loginName > h2{
+    margin-left:40px;
+  }
+  .online{
+    position:fixed;
+      left:9px;
+      top:9px;
+  }
+  .fl{
+    float:left;
+    height: 35px;
+    line-height: 35px;
+  }
+ .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+ .victory{
+  width:70%;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  -webkit-animation: gameover 1s;
+ }
+ @-webkit-keyframes gameover{
+     from {
+          -webkit-transform: translateZ(600px) scale(2,2);
+      }
+
+      to {
+          -webkit-transform: translateZ(0px) scale(1,1);
+      }
+ }
