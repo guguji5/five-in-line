@@ -22,16 +22,16 @@ io.on('connection', function(socket){
     io.to(socket.id).emit('role', onlineUser[socket.id]);//将身份信息（下黑旗还是白旗）传过去
     io.emit('online', onlineUser);//将在线人员名单带过去
     console.log(obj.userName,'is loginning'); 
-    console.log('在线用户',onlineUser);    
+    console.log('在线用户',onlineUser,'在线人数',userNum);    
   })
   socket.on('disconnect', function(){
     console.log(socket.id,'disconnected');
     if(onlineUser.hasOwnProperty(socket.id)){//disconnect的时候，将它从onlineUser里删掉
       delete onlineUser[socket.id];
     }
-    io.emit('online',onlineUser);//用来同步数据在线人数
-    console.log('在线用户',onlineUser);   
+    io.emit('online',onlineUser);//用来同步数据在线人数 
     userNum--;
+    console.log('在线用户',onlineUser,'在线人数',userNum);  
   });
   socket.on('chat message', function(msg){
     // 参数为下到什么坐标和目前是黑方or白方
