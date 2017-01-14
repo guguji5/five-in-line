@@ -21,7 +21,8 @@ io.on('connection', function(socket){
 
     io.to(socket.id).emit('role', onlineUser[socket.id]);//将身份信息（下黑旗还是白旗）传过去
     io.emit('online', onlineUser);//将在线人员名单带过去
-    console.log(obj.userName,'is loginning');    
+    console.log(obj.userName,'is loginning'); 
+    console.log('在线用户',onlineUser);    
   })
   socket.on('disconnect', function(){
     console.log(socket.id,'disconnected');
@@ -29,6 +30,7 @@ io.on('connection', function(socket){
       delete onlineUser[socket.id];
     }
     io.emit('online',onlineUser);//用来同步数据在线人数
+    console.log('在线用户',onlineUser);   
     userNum--;
   });
   socket.on('chat message', function(msg){
