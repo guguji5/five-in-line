@@ -29,8 +29,8 @@ function Unit(props){
 }
 //在线人数
 function OnlinePlayer(props){
-  var arr=[];
-  for(var key in props.online){
+  let arr=[];
+  for(let key in props.online){
      arr.push(props.online[key]);
   }
    return(
@@ -102,7 +102,7 @@ class Board extends React.Component{
     var that = this;
      socket.on('chat message', function(msg){
       //更新视图
-      var styleArray = that.state.styleArr.slice();
+      const styleArray = that.state.styleArr.slice();
       styleArray[msg.place] = that.state.isBlacksTurn ? 'unit unit-b' : 'unit unit-w';
       that.setState({
         'styleArr':styleArray,
@@ -112,7 +112,7 @@ class Board extends React.Component{
     });
     socket.on('reset',function(msg){
         console.log('reset')
-        var styleArray = that.state.styleArr.slice();
+        const styleArray = that.state.styleArr.slice();
         styleArray.fill('unit')
         that.setState({
           'styleArr':styleArray,
@@ -132,8 +132,8 @@ class Board extends React.Component{
       //
       //
       //
-      var num=0;
-      for(var i in this.state.online){
+      let num=0;
+      for(let i in this.state.online){
             num++;
       }
       if(num<2){
@@ -171,9 +171,9 @@ class Board extends React.Component{
   }
   render(){
 
-      var board=[];
-      for(var r=0;r<15;r++){
-        for(var i=0;i<15;i++){
+      let board=[];
+      for(let r=0;r<15;r++){
+        for(let i=0;i<15;i++){
           board[r*15+i]=<Unit key={[r,i]} style={this.state.styleArr[r*15+i]} onClick={() => this.handle(r*15+i)}/>
         }
       }
@@ -198,14 +198,14 @@ function calculateWinner(arr,num) {
     var leftSide=Math.min(num%15,5);
     var rightSide=Math.min(14-num%15,5);
     //console.log('rightSide',rightSide)
-    for(var i=num-1;i>num-leftSide-1;i--){
+    for(let i=num-1;i>num-leftSide-1;i--){
         if(arr[i]==target){
             line++;
         }else{
            break;
         }
     }
-    for(var i=num+1;i<=num+rightSide;i++){
+    for(let i=num+1;i<=num+rightSide;i++){
         if(arr[i]==target){
             line++;
         }else{
@@ -218,7 +218,7 @@ function calculateWinner(arr,num) {
         line=1;
     }
     //竖向判断 先上后下
-    for(var i=num-15;i>=num-upSide*15;i=i-15){
+    for(let i=num-15;i>=num-upSide*15;i=i-15){
         if(arr[i]==target){
             line++;
         }else{
@@ -226,7 +226,7 @@ function calculateWinner(arr,num) {
         }
     }
     var downSide=15-upSide
-    for(var i=num+15;i<=num+downSide*15;i=i+15){
+    for(let i=num+15;i<=num+downSide*15;i=i+15){
         if(arr[i]==target){
             line++;
         }else{
@@ -241,7 +241,7 @@ function calculateWinner(arr,num) {
     //   斜向判断  酱紫/斜   先上后下
     
     rightUp=Math.min(rightUp,rightSide)//判断太靠右边了，就被右边界隔断
-    for(var i=num-14;i>=num-rightUp*14;i=i-14){
+    for(let i=num-14;i>=num-rightUp*14;i=i-14){
         if(arr[i]==target){
             line++;
         }else{
@@ -251,7 +251,7 @@ function calculateWinner(arr,num) {
     var leftDown,rightDown;
     rightDown=leftDown=14-Math.floor(num/15);
     leftDown=Math.min(leftDown,leftSide);//判断太靠左边了，就被左边界隔断
-    for(var i=num+14;i<=num+leftDown*14;i=i+14){
+    for(let i=num+14;i<=num+leftDown*14;i=i+14){
         if(arr[i]==target){
             line++;
         }else{
@@ -265,7 +265,7 @@ function calculateWinner(arr,num) {
     }
     //   斜向判断   酱紫\斜   先上后下
     rightUp=Math.min(rightUp,leftSide)
-    for(var i=num-16;i>=num-rightUp*16;i=i-16){
+    for(let i=num-16;i>=num-rightUp*16;i=i-16){
         if(arr[i]==target){
             line++;
         }else{
@@ -273,7 +273,7 @@ function calculateWinner(arr,num) {
         }    
     }
     rightDown=Math.min(rightDown,rightSide)
-    for(var i=num+16;i<=num+rightDown*16;i=i+16){
+    for(let i=num+16;i<=num+rightDown*16;i=i+16){
         if(arr[i]==target){
             line++;
         }else{
