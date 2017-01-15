@@ -28,9 +28,9 @@ io.on('connection', function(socket){
     console.log(socket.id,'disconnected');
     if(onlineUser.hasOwnProperty(socket.id)){//disconnect的时候，将它从onlineUser里删掉
       delete onlineUser[socket.id];
+      userNum--;
     }
-    io.emit('online',onlineUser);//用来同步数据在线人数 
-    userNum--;
+    io.emit('online',onlineUser);//用来同步数据在线人数  
     console.log('在线用户',onlineUser,'在线人数',userNum);  
   });
   socket.on('chat message', function(msg){
