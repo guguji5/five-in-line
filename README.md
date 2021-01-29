@@ -3,8 +3,8 @@
 
 起服务后，可以两人对战的哦，多加入的人可以观战。
 
-![效果图](pic1.png)
-![效果图](impression.gif)
+![效果图](https://img-ys011.didistatic.com/static/dc2img/pic1.png)
+![效果图](https://img-ys011.didistatic.com/static/dc2img/impression.gif)
 
 页面是react.js写的，实时通讯是借助socket.io，后台是简单的几句node.js。自己写的jsx文件在js文件夹下，通过grunt编译后的js在dist文件夹下。
 
